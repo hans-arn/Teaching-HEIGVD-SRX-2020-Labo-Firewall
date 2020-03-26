@@ -123,15 +123,19 @@ _Lors de la définition d'une zone, spécifier l'adresse du sous-réseau IP avec
 
 **LIVRABLE : Remplir le tableau**
 
-| Adresse IP source | Adresse IP destination | Type | Port src | Port dst | Action |
-| :---:             | :---:                  | :---:| :------: | :------: | :----: |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
+| N° conditions | Adresse IP source | Adresse IP destination | Type | Port src | Port dst | Action |
+| ------------- | :---------------: | :--------------------: | :--: | :------: | :------: | :----: |
+| 1             | 192.168.100.0/24  |       172.17.0.2       | UDP  |   any    |    53    | accept |
+| 1             | 192.168.100.0/24  |       172.17.0.2       | TCP  |   any    |    53    | accept |
+| 2             | 192.168.100.0/24  |          any           | ICMP |   any    |   any    | accept |
+| 2             | 192.168.200.0/24  |    192.168.100.0/24    | ICMP |   any    |   any    | accept |
+| 3             | 192.168.100.0/24  |       172.17.0.2       | TCP  |   any    |   8080   | accept |
+| 3             | 192.168.100.0/24  |       172.17.0.2       | TCP  |   any    |    80    | accept |
+| 4             | 192.168.100.0/24  |       172.17.0.2       | TCP  |   any    |   443    | accept |
+| 5             |        any        |     192.168.200.3      | TCP  |   any    |    80    | accept |
+| 6             |   192.168.100.3   |     192.168.200.3      | TCP  |   any    |    22    | accept |
+| 7             |   192.168.100.3   |     192.168.100.2      | TCP  |   any    |    22    | accept |
+| 8             |        any        |          any           | any  |   any    |   any    |  Drop  |
 
 ---
 
@@ -403,7 +407,7 @@ LIVRABLE : Commandes iptables
 
 ```bash
 ping 8.8.8.8
-``` 	            
+```
 Faire une capture du ping.
 
 ---
@@ -576,7 +580,6 @@ ssh root@192.168.200.3 (password : celui que vous avez configuré)
   <li>En général, à quoi faut-il particulièrement faire attention lors de l'écriture des règles du pare-feu pour ce type de connexion ? 
   </li>                                  
 </ol>
-
 
 ---
 **Réponse**
