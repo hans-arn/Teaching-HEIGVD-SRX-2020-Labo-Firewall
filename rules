@@ -1,0 +1,13 @@
+# rejet de tous le trafic par défaut 
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+
+# acceptation des ping provenant et allant vers LAN
+iptables -A FORWARD -p icmp --icmp-type 8 -s 192.168.100.0/24 -j ACCEPT
+iptables -A FORWARD -p icmp --icmp-type 0 -d 192.168.100.0/24 -j ACCEPT
+
+# acceptation des ping de la part de LAN to DMZ 
+iptables -A FORWARD -p icmp --icmp-type 8  -s 192.168.100.0/24 -d 192.168.200.0/24 -j ACCEPT
+iptables -A FORWARD -p icmp --icmp-type 0  -s 192.168.200.0/24 -d 192.168.100.0/24 -j ACCEPT
+

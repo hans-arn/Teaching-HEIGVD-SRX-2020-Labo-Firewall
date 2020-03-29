@@ -411,7 +411,7 @@ ping 8.8.8.8
 Faire une capture du ping.
 
 ---
-**LIVRABLE : capture d'écran de votre ping vers l'Internet.**
+![](./figures/4.png)
 
 ---
 
@@ -421,20 +421,20 @@ Faire une capture du ping.
 </ol>
 
 
-| De Client\_in\_LAN à | OK/KO | Commentaires et explications |
-| :---                 | :---: | :---                         |
-| Interface DMZ du FW  |       |                              |
-| Interface LAN du FW  |       |                              |
-| Client LAN           |       |                              |
-| Serveur WAN          |       |                              |
+| De Client\_in\_LAN à | OK/KO | Commentaires et explications                                 |
+| :------------------- | :---: | :----------------------------------------------------------- |
+| Interface DMZ du FW  |  KO   | Car les règles permettent seulement de transiter à travers FW |
+| Interface LAN du FW  |  KO   | Car les règles permettent seulement de transiter à travers FW |
+| Client LAN           |  OK   | action autorisée                                             |
+| Serveur WAN          |  OK   | action autorisée                                             |
 
 
-| De Server\_in\_DMZ à | OK/KO | Commentaires et explications |
-| :---                 | :---: | :---                         |
-| Interface DMZ du FW  |       |                              |
-| Interface LAN du FW  |       |                              |
-| Serveur DMZ          |       |                              |
-| Serveur WAN          |       |                              |
+| De Server\_in\_DMZ à | OK/KO | Commentaires et explications                                 |
+| :------------------- | :---: | :----------------------------------------------------------- |
+| Interface DMZ du FW  |  KO   | Car les règles permettent seulement de transiter à travers FW |
+| Interface LAN du FW  |  KO   | Car les règles permettent seulement de transiter à travers FW |
+| Serveur DMZ          |  OK   | action autorisée                                             |
+| Serveur WAN          |  KO   | Action non autorisée                                         |
 
 
 ## Règles pour le protocole DNS
