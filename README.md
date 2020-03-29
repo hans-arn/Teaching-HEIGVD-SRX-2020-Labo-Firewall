@@ -522,7 +522,13 @@ Commandes iptables :
 ---
 
 ```bash
-LIVRABLE : Commandes iptables
+# HTTP(s)
+iptables -A FORWARD -p tcp -s 192.168.100.0/24 --dport 80 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 80 -d 192.168.100.0/24 -j ACCEPT
+iptables -A FORWARD -p tcp -s 192.168.100.0/24 --dport 8080 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 8080 -d 192.168.100.0/24 -j ACCEPT
+iptables -A FORWARD -p tcp -s 192.168.100.0/24 --dport 443 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 443 -d 192.168.100.0/24 -j ACCEPT
 ```
 
 ---
@@ -534,7 +540,9 @@ Commandes iptables :
 ---
 
 ```bash
-LIVRABLE : Commandes iptables
+# Serveur Web 
+iptables -A FORWARD -p tcp -s 192.168.200.3 --dport 80 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 80 -d 192.168.200.3 -j ACCEPT
 ```
 ---
 
@@ -545,7 +553,7 @@ LIVRABLE : Commandes iptables
 
 ---
 
-**LIVRABLE : capture d'écran.**
+![](./figures/7.png)
 
 ---
 
