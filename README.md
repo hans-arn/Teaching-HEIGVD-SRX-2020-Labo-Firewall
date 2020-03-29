@@ -394,7 +394,19 @@ Commandes iptables :
 ---
 
 ```bash
-LIVRABLE : Commandes iptables
+# rejet de tous le trafic par défaut 
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+
+# acceptation des ping provenant et allant vers LAN
+iptables -A FORWARD -p icmp --icmp-type 8 -s 192.168.100.0/24 -j ACCEPT
+iptables -A FORWARD -p icmp --icmp-type 0 -d 192.168.100.0/24 -j ACCEPT
+
+# acceptation des ping de la part de LAN to DMZ 
+iptables -A FORWARD -p icmp --icmp-type 8  -s 192.168.100.0/24 -d 192.168.200.0/24 -j ACCEPT
+iptables -A FORWARD -p icmp --icmp-type 0  -s 192.168.200.0/24 -d 192.168.100.0/24 -j ACCEPT
+
 ```
 ---
 
@@ -452,7 +464,7 @@ ping www.google.com
 
 ---
 
-**LIVRABLE : capture d'écran de votre ping.**
+![](./figures/5.png)
 
 ---
 
@@ -463,7 +475,12 @@ Commandes iptables :
 ---
 
 ```bash
-LIVRABLE : Commandes iptables
+# DNS
+iptables -A FORWARD -p udp -s 192.168.100.0/24 --dport 53 -j ACCEPT
+iptables -A FORWARD -p udp --sport 53 -d 192.168.100.0/24 -j ACCEPT
+
+iptables -A FORWARD -p tcp -s 192.168.100.0/24 --dport 53 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 53 -d 192.168.100.0/24 -j ACCEPT
 ```
 
 ---
@@ -475,21 +492,19 @@ LIVRABLE : Commandes iptables
 
 ---
 
-**LIVRABLE : capture d'écran de votre ping.**
+![](./figures/6.png)
 
 ---
 
 <ol type="a" start="6">
   <li>Remarques (sur le message du premier ping)? 
-  </li>                                  
+  </li>                              
 </ol>
 
 ---
 **Réponse**
 
-**LIVRABLE : Votre réponse ici...**
-
----
+L'opération n'était pas autorisé sur ce port, on ne pouvait pas résoudre le nom www.google.com   
 
 
 ## Règles pour les protocoles HTTP et HTTPS
