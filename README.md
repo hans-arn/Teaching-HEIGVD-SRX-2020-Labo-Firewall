@@ -285,7 +285,7 @@ ping 192.168.100.3
 
 ---
 
-![](/home/jerome/HEIG/Labo/SRX/Teaching-HEIGVD-SRX-2020-Labo-Firewall/figures/2.png)
+![](./figures/2.png)
 
 ---
 
@@ -299,7 +299,7 @@ ping 8.8.8.8
 
 ---
 
-![](/home/jerome/HEIG/Labo/SRX/Teaching-HEIGVD-SRX-2020-Labo-Firewall/figures/3.png)
+![](./figures/3.png)
 
 ---
 
