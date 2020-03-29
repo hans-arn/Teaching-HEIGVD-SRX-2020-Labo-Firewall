@@ -121,7 +121,7 @@ _Lors de la définition d'une zone, spécifier l'adresse du sous-réseau IP avec
 
 ---
 
-**LIVRABLE : Remplir le tableau**
+
 
 | N° conditions | Adresse IP source | Adresse IP destination | Type | Port src | Port dst | Action |
 | ------------- | :---------------: | :--------------------: | :--: | :------: | :------: | :----: |
@@ -230,7 +230,7 @@ ping 192.168.200.3
 ```
 ---
 
-**LIVRABLE : capture d'écran de votre tentative de ping.**  
+![](./figures/1.png)
 
 ---
 
