@@ -285,7 +285,7 @@ ping 192.168.100.3
 
 ---
 
-**LIVRABLE : capture d'écran de votre nouvelle tentative de ping.**
+![](/home/jerome/HEIG/Labo/SRX/Teaching-HEIGVD-SRX-2020-Labo-Firewall/figures/2.png)
 
 ---
 
@@ -299,7 +299,7 @@ ping 8.8.8.8
 
 ---
 
-**LIVRABLE : capture d'écran de votre ping vers l'Internet.**
+![](/home/jerome/HEIG/Labo/SRX/Teaching-HEIGVD-SRX-2020-Labo-Firewall/figures/3.png)
 
 ---
 
