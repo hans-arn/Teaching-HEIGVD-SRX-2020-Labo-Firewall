@@ -570,7 +570,11 @@ Commandes iptables :
 ---
 
 ```bash
-LIVRABLE : Commandes iptables
+# SSH
+iptables -A INPUT -p tcp -s 192.168.100.3 -d 192.168.200.3 --dport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -s 192.168.200.3 -d 192.168.100.3 -j ACCEPT
+iptables -A INPUT -p tcp -s 192.168.100.3 -d 192.168.100.2 --dport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -s 192.168.100.2 -d 192.168.100.3 -j ACCEPT
 ```
 
 ---
@@ -583,7 +587,7 @@ ssh root@192.168.200.3 (password : celui que vous avez configuré)
 
 ---
 
-**LIVRABLE : capture d'écran de votre connexion ssh.**
+![](./figures/8.png)
 
 ---
 
@@ -595,7 +599,7 @@ ssh root@192.168.200.3 (password : celui que vous avez configuré)
 ---
 **Réponse**
 
-**LIVRABLE : Votre réponse ici...**
+C'est très  utile lorsque la machine ne se trouve pas sur le même site physique. De plus dans le cas d'un dans le cas d'un administrateur système, il peut gérer plusieurs machines sans devoir se déplacer. 
 
 ---
 
@@ -607,7 +611,7 @@ ssh root@192.168.200.3 (password : celui que vous avez configuré)
 ---
 **Réponse**
 
-**LIVRABLE : Votre réponse ici...**
+Dans le cas où on serait connecter en SSH sur notre routeur pour le configurer et qu'on interdit le trafic SSH, on ne pourra plus le configurer. 
 
 ---
 
@@ -622,6 +626,6 @@ A présent, vous devriez avoir le matériel nécessaire afin de reproduire la ta
 
 ---
 
-**LIVRABLE : capture d'écran avec toutes vos règles.**
+![](./figures/9.png)
 
 ---
