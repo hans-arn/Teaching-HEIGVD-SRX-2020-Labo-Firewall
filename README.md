@@ -592,7 +592,7 @@ ssh root@192.168.200.3 (password : celui que vous avez configuré)
 ---
 
 <ol type="a" start="9">
-  <li>Expliquer l'utilité de **ssh** sur un serveur. 
+  <li>Expliquer l'utilité de ssh sur un serveur. 
   </li>                                  
 </ol>
 
